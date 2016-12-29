@@ -3,16 +3,15 @@
     "name": "yuchonghua"
   },
   "bugs": {
-    "url": "https://github.com/chengjiabao/cjb-jsnet/issues"
+    "url": "https://github.com/ddvs/ddv-worker/issues"
   },
   "dependencies": {
-    "cjb-base": ">=0.0.35",
-    "ws": ">=1.1.1"
+    "cjb-base": ">=0.0.35"
   },
-  "description": "cjb-jsnet",
+  "description": "ddv-worker",
   "devDependencies": {},
   "directories": {},
-  "homepage": "https://github.com/chengjiabao/cjb-jsnet#readme",
+  "homepage": "https://github.com/ddvs/ddv-worker#readme",
   "jshintConfig": {
     "esversion": 6,
     "undef": true,
@@ -26,7 +25,7 @@
     ]
   },
   "keywords": [
-    "cjb-jsnet"
+    "ddv-worker"
   ],
   "license": "ISC",
   "main": "index.js",
@@ -36,12 +35,12 @@
       "email": "yuchonghua@163.com"
     }
   ],
-  "name": "cjb-jsnet",
+  "name": "ddv-worker",
   "optionalDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/chengjiabao/cjb-jsnet.git"
+    "url": "git+ssh://git@github.com/ddvs/ddv-worker.git"
   },
   "scripts": {},
-  "version": "0.0.32"
+  "version": "0.0.2"
 }
