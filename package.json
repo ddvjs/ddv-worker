@@ -1,51 +1,4 @@
 {
-  "_args": [
-    [
-      {
-        "raw": "cjb-jsnet@>=0.0.17",
-        "scope": null,
-        "escapedName": "cjb-jsnet",
-        "name": "cjb-jsnet",
-        "rawSpec": ">=0.0.17",
-        "spec": ">=0.0.17",
-        "type": "range"
-      },
-      "/usr/local/lib/node_modules/ddv"
-    ]
-  ],
-  "_cnpm_publish_time": 1478786808874,
-  "_from": "cjb-jsnet@>=0.0.17",
-  "_id": "cjb-jsnet@0.0.18",
-  "_inCache": true,
-  "_location": "/ddv/cjb-jsnet",
-  "_nodeVersion": "7.0.0",
-  "_npmOperationalInternal": {
-    "host": "packages-18-east.internal.npmjs.com",
-    "tmp": "tmp/cjb-jsnet-0.0.18.tgz_1478786808344_0.5368934203870595"
-  },
-  "_npmUser": {
-    "name": "yuchonghua",
-    "email": "yuchonghua@163.com"
-  },
-  "_npmVersion": "3.10.8",
-  "_phantomChildren": {},
-  "_requested": {
-    "raw": "cjb-jsnet@>=0.0.17",
-    "scope": null,
-    "escapedName": "cjb-jsnet",
-    "name": "cjb-jsnet",
-    "rawSpec": ">=0.0.17",
-    "spec": ">=0.0.17",
-    "type": "range"
-  },
-  "_requiredBy": [
-    "/ddv"
-  ],
-  "_resolved": "http://registry.npm.taobao.org/cjb-jsnet/download/cjb-jsnet-0.0.18.tgz",
-  "_shasum": "5c8b981716f8fefa30cd858ebca615452b2b3bb5",
-  "_shrinkwrap": null,
-  "_spec": "cjb-jsnet@>=0.0.17",
-  "_where": "/usr/local/lib/node_modules/ddv",
   "author": {
     "name": "yuchonghua"
   },
@@ -53,24 +6,25 @@
     "url": "https://github.com/chengjiabao/cjb-jsnet/issues"
   },
   "dependencies": {
-    "child_process": ">=0.0.0",
-    "cjb-base": ">=0.0.31",
-    "cluster": ">=0.0.0",
-    "http": ">=0.0.0",
-    "https": ">=1.0.0",
-    "net": ">=0.0.0",
+    "cjb-base": ">=0.0.35",
     "ws": ">=1.1.1"
   },
   "description": "cjb-jsnet",
   "devDependencies": {},
   "directories": {},
-  "dist": {
-    "shasum": "5c8b981716f8fefa30cd858ebca615452b2b3bb5",
-    "size": 14742,
-    "noattachment": false,
-    "tarball": "http://registry.npm.taobao.org/cjb-jsnet/download/cjb-jsnet-0.0.18.tgz"
-  },
   "homepage": "https://github.com/chengjiabao/cjb-jsnet#readme",
+  "jshintConfig": {
+    "esversion": 6,
+    "undef": true,
+    "unused": true,
+    "node": true,
+    "predef": [
+      "module",
+      "require",
+      "console",
+      "process"
+    ]
+  },
   "keywords": [
     "cjb-jsnet"
   ],
@@ -84,14 +38,10 @@
   ],
   "name": "cjb-jsnet",
   "optionalDependencies": {},
-  "publish_time": 1478786808874,
-  "readme": "ERROR: No README data found!",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/chengjiabao/cjb-jsnet.git"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "version": "0.0.21"
+  "scripts": {},
+  "version": "0.0.32"
 }
