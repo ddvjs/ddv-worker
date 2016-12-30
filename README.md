@@ -1,5 +1,10 @@
 # ddv-worker #
 
+[![CDNJS](https://img.shields.io/cdnjs/v/ddv-worker.svg)](https://cdnjs.com/libraries/ddv-worker)
+[![npm package](https://img.shields.io/npm/v/ddv-worker.svg)](https://www.npmjs.org/package/ddv-worker)
+[![NPM downloads](http://img.shields.io/npm/dm/ddv-worker.svg)](https://npmjs.org/package/ddv-worker)
+
+
 >* ddv-worker 是 [ddv](https://github.com/ddvjs/ddv) 的一个核心模块，他实现了整个线程的管护和管理，已经虚拟主机的 socket 的线程之间的转发
 
 ## 一、初始化
