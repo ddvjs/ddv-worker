@@ -6,7 +6,8 @@
     "url": "https://github.com/ddvs/ddv-worker/issues"
   },
   "dependencies": {
-    "cjb-base": ">=0.0.35"
+    "cjb-base": ">=0.0.35",
+    "npm-which": "~3.0.1"
   },
   "description": "ddv-worker",
   "devDependencies": {},
@@ -42,5 +43,5 @@
     "url": "git+ssh://git@github.com/ddvs/ddv-worker.git"
   },
   "scripts": {},
-  "version": "0.0.2"
+  "version": "0.0.4"
 }
