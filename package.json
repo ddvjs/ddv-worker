@@ -1,28 +1,7 @@
 {
+  "scripts": {},
   "author": {
     "name": "yuchonghua"
-  },
-  "bugs": {
-    "url": "https://github.com/ddvs/ddv-worker/issues"
-  },
-  "dependencies": {
-    "cjb-base": ">=0.0.35"
-  },
-  "description": "ddv-worker",
-  "devDependencies": {},
-  "directories": {},
-  "homepage": "https://github.com/ddvs/ddv-worker#readme",
-  "jshintConfig": {
-    "esversion": 6,
-    "undef": true,
-    "unused": true,
-    "node": true,
-    "predef": [
-      "module",
-      "require",
-      "console",
-      "process"
-    ]
   },
   "keywords": [
     "ddv-worker"
@@ -36,11 +15,30 @@
     }
   ],
   "name": "ddv-worker",
+  "bugs": {
+    "url": "https://github.com/ddvs/ddv-worker/issues"
+  },
+  "homepage": "https://github.com/ddvs/ddv-worker#readme",
+  "description": "ddv-worker",
+  "directories": {},
+  "dependencies": {},
+  "devDependencies": {},
   "optionalDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/ddvs/ddv-worker.git"
   },
-  "scripts": {},
-  "version": "0.0.8"
+  "jshintConfig": {
+    "esversion": 6,
+    "undef": true,
+    "unused": true,
+    "node": true,
+    "predef": [
+      "module",
+      "require",
+      "console",
+      "process"
+    ]
+  },
+  "version": "0.0.9"
 }
