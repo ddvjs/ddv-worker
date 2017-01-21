@@ -10,11 +10,7 @@ const DdvWorker = require('./lib/DdvWorker.js')
 // 设定类型
 DdvWorker.DDV_WORKER_PROCESS_TYPE = type
 
-if (['master', 'worker'].indexOf(type) > -1) {
-	module.exports = new DdvWorker()
-} else {
-	module.exports = DdvWorker
-}
+module.exports = (['master', 'worker'].indexOf(type) > -1) ? new DdvWorker() : DdvWorker
 // 暴露实例化对象
 module.exports.DdvWorker = DdvWorker
 module.exports.now = DdvWorker.prototype.now

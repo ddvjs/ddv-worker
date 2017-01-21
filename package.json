@@ -48,7 +48,11 @@
       "require",
       "console",
       "process"
-    ]
+    ],
+    "arrow-parens": 0,
+    "generator-star-spacing": 0,
+    "no-debugger": 0,
+    "no-console": 2
   },
   "version": "0.0.12"
 }
