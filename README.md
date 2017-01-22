@@ -33,10 +33,7 @@ worker.server = http.createServer(app);
 //app的进一步开发
 
 worker.config = Object.create(null);
-//子线程初始化结束 时候 获取调试状态
-worker.on('init::end',function(){
-  //这里代表初始化完毕;
-});
+
 //标记没有启动过
 let isStart = false ;
 //导出一个模块-服务启动
