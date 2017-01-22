@@ -18,8 +18,6 @@ var worker = require('ddv-worker');
 >* 比如封装了 testworker.js
 
 ```javaScript
-
-/*global module, process */
 'use strict';
 //定义进程标题
 process.title = 'ddvSizeTest';
@@ -35,59 +33,36 @@ worker.server = http.createServer(app);
 //app的进一步开发
 
 worker.config = Object.create(null);
-//判断是否初始化
-worker._initEnd = false ;
 //子线程初始化结束 时候 获取调试状态
 worker.on('init::end',function(){
-    //是否为调试模式
-	worker.DEBUG = worker.DEBUG || false ;
-    //标记已经初始化结束
-	worker._initEnd = true ;
+  //这里代表初始化完毕;
 });
-//导出一个模块
-module.exports = function start(c){
-    worker.config = c || worker.config || Object.create(null);
-    c = void 0;
-	//判断是否已经初始化完毕
-	if (worker._initEnd===true) {
-		//直接启动
-		worker._start();
-	}else{
-		//初始化结束的时候启动
-		worker.once('init::end',()=>{
-			worker._start();
-		});
-	}
-};
-
 //标记没有启动过
 let isStart = false ;
-//服务启动
-worker._start = function _start() {
-    if (isStart===true) {
-		//防止重复启动
-        console.warn('不能重复开始');
-        return ;
-    }
-	//标记已经启动
-    isStart = true ;
-
+//导出一个模块-服务启动
+module.exports = function start(c){
+  worker.config = c || worker.config || Object.create(null);
+  c = void 0;
+  if (isStart===true) {
+	//防止重复启动
+      console.warn('不能重复开始');
+      return ;
+  }
 	worker.server.setConfig(worker.config);
-
-    //修改是否默认监听站点
-	worker.serverConf.defaultListen = (worker.config.defaultListen===void 0)?(worker.serverConf.defaultListen||false):worker.config.defaultListen ;
-    //修改监听数组
-    worker.serverConf.listen = worker.config.listen || worker.serverConf.listen || [];
-    //修改监听cpu核数
-	worker.serverConf.cpuLen = worker.config.cpuLen || worker.serverConf.cpuLen || 1;
-    //发送所以修改给管理线程，更新 监听信息
-	worker.callMaster('updateServerConf', worker.serverConf, (state, message)=>{
-		if (state) {
-			console.log(`[pid:${process.pid}][wid:${worker.id}]更新服务器监听配置参数成功!`);
-		}else{
+  //发送所以修改给管理线程，更新 监听信息
+	worker.updateServerConf({
+		//修改是否默认监听站点
+		defaultListen: worker.config.defaultListen,
+		//修改监听数组
+		listen : worker.config.listen,
+		//修改监听cpu核数
+		cpuLen : worker.config.cpuLen,
+	}, (e)=>{
+		if (e) {
 			console.log(`[pid:${process.pid}][wid:${worker.id}]更新服务器监听配置参数失败!`);
+		}else{
+			console.log(`[pid:${process.pid}][wid:${worker.id}]更新服务器监听配置参数成功!`);
 		}
-		state = message = void 0 ;
 	});
 };
 
@@ -130,29 +105,6 @@ worker.on('error',function(e){
 
 /***********************异常错误处理模块结束***********************/
 
-
-/**
- * [processInfoCb 管理进程查询子进程状态]
- * @author: 桦 <yuchonghua@163.com>
- * @DateTime 2016-11-16T15:02:10+0800
- * @param    {[type]}                 data             [description]
- * @param    {[type]}                 handle           [description]
- * @param    {[type]}                 callback){	data [description]
- * @return   {[type]}                                  [description]
- */
-worker.on('master::call::processInfo',function processInfoCb(data, handle, callback){
-	data = handle = undefined ;
-	return callback&&callback(true, {
-		pid:process.pid,
-		status:'Runing',
-		debug:(worker.DEBUG?'Enabled':'Disabled'),
-		lastUptime:(worker.starttime*1000),
-		memoryUsage:process.memoryUsage(),
-		socket:worker.socketSum,
-		ws:worker.webSocketSum,
-		http:worker.httpSum
-	});
-});
 
 
 ```
