@@ -34,6 +34,9 @@ const util = module.exports = {
     }
     return r
   },
+  getServerGuid (guid) {
+    return guid || '2cb47a70-90d6-5df9-9416-84fa3b2da5d4'
+  },
   type (obj, isType) {
     if (isType !== void 0) {
       return isType === util.type(obj)

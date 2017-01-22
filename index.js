@@ -1,25 +1,44 @@
 'use strict'
-let type = (process.env.DDV_WORKER_PROCESS_TYPE || 'worker')
-
+// 工具
+const util = require('ddv-worker/util')
+// 域
+const domain = require('domain')
+// 类型
+var type = (process.env.DDV_WORKER_PROCESS_TYPE || 'worker')
 // 转小写
 type = (type || 'daemon').toString().toLowerCase()
 // 强制是以下类型
 type = ['master', 'worker', 'daemon'].indexOf(type) > -1 ? type : 'daemon'
-// 引入实例化基础类
-const DdvWorker = require('./lib/DdvWorker.js')
-// 设定类型
-DdvWorker.DDV_WORKER_PROCESS_TYPE = type
 
-module.exports = (['master', 'worker'].indexOf(type) > -1) ? new DdvWorker() : DdvWorker
-// 暴露实例化对象
-module.exports.DdvWorker = DdvWorker
-module.exports.now = DdvWorker.prototype.now
-module.exports.time = DdvWorker.prototype.time
-module.exports.createNewid = DdvWorker.prototype.createNewid
-module.exports.type = DdvWorker.prototype.type
-module.exports.isFunction = DdvWorker.prototype.isFunction
-module.exports.isArray = DdvWorker.prototype.isArray
-module.exports.deepClone = DdvWorker.prototype.deepClone
-module.exports.argsToArray = DdvWorker.prototype.argsToArray
-module.exports.defineGetter = DdvWorker.prototype.defineGetter
-module.exports.defineSetter = DdvWorker.prototype.defineSetter
+class DdvWorker extends domain.Domain {
+  // 构造函数
+  constructor () {
+    // 调用父类构造函数
+    super()
+    // 时间
+    this.startTimeStamp = util.now() / 1000
+    // 判断是否存在构造函数 - 调用构造函数
+    return util.isFunction(this.__construct) && this.__construct() || this
+  }
+  // 判断是否为DdvWorker实例化的
+  isDdvWorker (o) {
+    return o && (o instanceof DdvWorker)
+  }
+}
+// 导出模块
+module.exports = type === 'daemon' ? DdvWorker : new DdvWorker()
+module.exports.now = util.now
+module.exports.time = util.time
+module.exports.createNewid = util.createNewid
+module.exports.type = util.type
+module.exports.isFunction = util.isFunction
+module.exports.isArray = util.isArray
+// module.exports.deepClone = DdvWorker.prototype.deepClone
+module.exports.argsToArray = util.argsToArray
+module.exports.defineGetter = util.defineGetter
+module.exports.defineSetter = util.defineSetter
+module.exports.isDdvWorker = DdvWorker.prototype.isDdvWorker
+
+// 引入扩展模块
+require('ddv-worker/lib/' + type)
+util.isFunction(module.exports.workerInit) && module.exports.workerInit()
