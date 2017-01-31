@@ -77,6 +77,9 @@ const util = module.exports = {
   isArray () {
     return Array.isArray.apply(this, arguments)
   },
+  isNumber (obj) {
+    return (typeof obj === 'string' || typeof obj === 'number') && (!util.isArray(obj) && (obj - parseFloat(obj) >= 0))
+  },
   // 判断是否一个标准的global
   isGlobal (obj) {
     return obj !== void 0 && obj === obj.global
