@@ -2,7 +2,8 @@
   "scripts": {
     "lint": "eslint --ext .js lib",
     "test": "npm run lint",
-    "precommit": "npm run lint"
+    "precommit": "npm run lint",
+    "prepublish": "npm run lint"
   },
   "author": {
     "name": "yuchonghua"
