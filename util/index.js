@@ -34,6 +34,34 @@ const util = module.exports = {
     }
     return r
   },
+  // 生成guid
+  createGuid (s) {
+    return (s || 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx').replace(/[xy]/g, function (c) {
+      var r = Math.random() * 16 | 0
+      return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16)
+    })
+  },
+  // 生成请求id
+  createRequestId () {
+    var pid, rid, ridLen, ridT, ridNew, i
+      // 获取16进制的 pid
+    pid = Number(util.createNewPid(true)).toString(16)
+      // 种子
+    rid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'
+    ridNew = ''
+    for (i = rid.length - 1; i >= 0; i--) {
+      ridT = rid[i]
+      if (ridT === 'x') {
+        ridLen = pid.length
+        ridT = pid ? pid.charAt(ridLen - 1) : 'x'
+        pid = pid.substr(0, ridLen - 1)
+      }
+      ridNew = ridT + ridNew
+    }
+    rid = util.createGuid(ridNew)
+    i = ridNew = ridT = ridLen = pid = undefined
+    return rid
+  },
   getServerGuid (guid) {
     return guid || '2cb47a70-90d6-5df9-9416-84fa3b2da5d4'
   },
