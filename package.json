@@ -21,9 +21,9 @@
   ],
   "name": "ddv-worker",
   "bugs": {
-    "url": "https://github.com/ddvs/ddv-worker/issues"
+    "url": "https://github.com/ddvjs/ddv-worker/issues"
   },
-  "homepage": "https://github.com/ddvs/ddv-worker#readme",
+  "homepage": "https://github.com/ddvjs/ddv-worker#readme",
   "description": "ddv-worker",
   "directories": {},
   "dependencies": {},
@@ -38,7 +38,7 @@
   "preferGlobal": false,
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/ddvs/ddv-worker.git"
+    "url": "git+ssh://git@github.com/ddvjs/ddv-worker.git"
   },
   "jshintConfig": {
     "esversion": 6
