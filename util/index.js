@@ -27,7 +27,7 @@ const util = module.exports = {
       util._createNewidTimeLast = this.time()
       util._createNewidSumLast = 0
     }
-    r = util._createNewidTimeLast.toString() + (++util._createNewidSumLast).toString()
+    r = (++util._createNewidSumLast).toString() + util._createNewidTimeLast.toString()
     // 使用36进制
     if (!is10) {
       r = parseInt(r, 10).toString(36)
