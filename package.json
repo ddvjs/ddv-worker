@@ -27,7 +27,8 @@
   "description": "ddv-worker",
   "directories": {},
   "dependencies": {
-    "debug": "~2.6.0"
+    "debug": "~2.6.0",
+    "ddv-auth": "0.0.9"
   },
   "devDependencies": {
     "babel-eslint": "^7.0.1",
